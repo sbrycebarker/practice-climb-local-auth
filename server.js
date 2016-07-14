@@ -10,6 +10,9 @@ var port = 3400;
 // INITIALIZE PASSPORT //
 app.use(passport.initialize());
 app.use(passport.session());
+// routes //
+
+require('./server/features/auth/auth.server.routes')(app, passport);
 
 app.get('/api/v1/test', function (req, res) {
   res.status(200).send('HELLO WORLD!')
